@@ -20,3 +20,4 @@ def pendu(meilleurscore):
     listemots = lire_dico("dico.txt")
     motrandom = listemots[rd.randint(0,len(listemots))]
     print(motrandom)
+    print('a')
