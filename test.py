@@ -1,17 +1,5 @@
-#Jeu du Pendu
-#9/23/24
-#Léonard Rivaux
-#ToDo:
-
-import random as rd
 import tkinter as tk
 import Pendu_lib as pdl
-
-def lire_dico(name):
-    data = open(name).read() 
-
-    l_dico = list(data.split())
-    return l_dico
 
 # Mot à deviner
 mot_a_deviner = "TORTUE"
@@ -43,9 +31,9 @@ for i, lettre in enumerate(alphabet):
     boutons[lettre] = bouton
     bouton.grid(row=1 + i // 13, column=i % 13, padx=5, pady=5)
 
-#création bouton exit
 bouton_exit = tk.Button(fenetre, text="Exit", font=("Arial", 14), width=6, command=fenetre.quit)
 bouton_exit.grid(row=3, column=12, padx=5, pady=5, columnspan=2)  # Placement en bas à droite
 
 # Démarrage de la boucle principale de Tkinter
 fenetre.mainloop()
+

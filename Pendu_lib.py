@@ -30,7 +30,7 @@ def pendu(meilleurscore):
     lettresessayées = []
 
 
-    while (essais != 8) and (str(motsplit) != str(lettres_trouvées)):
+    while (essais != 8) and (motsplit) != (lettres_trouvées):
         
         Message = "lettres trouvées:",str(lettres_trouvées),"Choisissez une lettre à ajouter.Lettres déja essayées:",lettresessayées,"essais restants:",8-essais
         demandelettre= input(Message)
@@ -41,7 +41,7 @@ def pendu(meilleurscore):
         else:
             print("lettre déjà demandée auparavant.")
 
-    if essais ==8:
+    if essais ==8 and motsplit != lettres_trouvées:
         print("Dommage vous avez perdu ! Le mot était:",motrandom)
     else:
         if meilleurscore>essais or meilleurscore==0:
