@@ -22,7 +22,7 @@ def lancement_partie():
 def pendu(meilleurscore):
     listemots = lire_dico("dico.txt")
     motrandom = listemots[rd.randint(0,len(listemots))]
-
+    print(motrandom)
     motsplit = list(motrandom)
     for lettre in motsplit:
         lettres_trouvées = ["_" if str(lettre) != motsplit[0] else motsplit[0] for lettre in motsplit]
@@ -30,25 +30,28 @@ def pendu(meilleurscore):
     lettresessayées = []
 
 
-    while (essais != 9) and (str(motsplit) != str(lettres_trouvées)):
+    while (essais != 8) and (str(motsplit) != str(lettres_trouvées)):
+        
         Message = "lettres trouvées:",str(lettres_trouvées),"Choisissez une lettre à ajouter.Lettres déja essayées:",lettresessayées,"essais restants:",8-essais
         demandelettre= input(Message)
-        lettresessayées.append(demandelettre)
-        lettres_trouvées = ajouterlettre(motsplit,lettres_trouvées,demandelettre)
-        essais+=1
+        if demandelettre not in lettresessayées:
+            lettresessayées.append(demandelettre)
+            lettres_trouvées = ajouterlettre(motsplit,lettres_trouvées,demandelettre)
+            essais+=1
+        else:
+            print("lettre déjà demandée auparavant.")
 
-
-    if essais ==9:
+    if essais ==8:
         print("Dommage vous avez perdu ! Le mot était:",motrandom)
     else:
-        if meilleurscore>essais:
+        if meilleurscore>essais or meilleurscore==0:
             meilleurscore = essais 
-        print("Bravo vous avez trouvé le mot",motrandom,"en",essais,"essais !" 'Votre meilleur score actuel est', meilleurscore)
+        print("Bravo vous avez trouvé le mot",motrandom,"en",essais,"essais !" 'Votre meilleur score actuel est', meilleurscore,"essais")
     a = input("Voulez vous rejouer ? (yes / no)")
     if a == "yes" :
         pendu(meilleurscore)
     else:
-        print("le meilleur score de vos parties est",meilleurscore)
+        print("le meilleur score de votre session est",meilleurscore,"essais")
         return False
 
 

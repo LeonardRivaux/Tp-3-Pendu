@@ -37,7 +37,6 @@ utile
 venir
 verre
 voix
-accrocher
 arroser
 bureau
 cabine
@@ -105,17 +104,3 @@ serrure
 tampon
 trousse
 velo
-baguette
-bonbonni
-bricolage
-boussole
-chauffer
-decouper
-diaposif
-fauteuil
-garderie
-magicien
-melanger
-ordinateur
-telephone
-television
